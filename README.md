@@ -6,15 +6,15 @@ It is started at the begining of every epoch and it sleeps until the correct tim
 
 A cronjob needs to be configured, an example can be find [here](https://github.com/Techs2Help/leaderScheduleCheck_cron/blob/main/cronjob.txt)
 
-Output example:
-Current epoch: 197
-Epoch start time: 04/04/22 20:20:16
-Epoch end time: 04/09/22 20:10:16
-Current cron execution time: 04/08/22 05:43:01
-Next check time: 04/08/22 14:12:46
-Script is going to sleep for: 30585 seconds
-Check is starting on: 04/08/22 14:12:46
-Script ended, schedule logged inside file: leaderSchedule_197.txt
+Output example:<br />
+Current epoch: 197<br />
+Epoch start time: 04/04/22 20:20:16<br />
+Epoch end time: 04/09/22 20:10:16<br />
+Current cron execution time: 04/08/22 05:43:01<br />
+Next check time: 04/08/22 14:12:46<br />
+Script is going to sleep for: 30585 seconds<br />
+Check is starting on: 04/08/22 14:12:46<br />
+Script ended, schedule logged inside file: leaderSchedule_197.txt<br />
 
 
 ## Todo:
