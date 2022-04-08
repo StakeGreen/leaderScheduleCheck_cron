@@ -1,0 +1,9 @@
+PATH=
+NODE_HOME=
+NODE_CONFIG=testnet/mainnet
+CARDANO_NODE_SOCKET_PATH=
+# set execution date for the start of a new epoch, example for epoch 197 testnet, set execution on 04/04/22, 20 20 */5 * * 
+# epochs in testnet start at 20:20 UTC
+# epochs in mainnet start at 21:45 UTC
+# */5 means every 5 days
+* * */5 * * /PathToScript/leaderScheduleCheck.sh > /PathForLogs/leaderSchedule_logs.txt 2>&1
