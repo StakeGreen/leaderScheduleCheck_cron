@@ -6,7 +6,7 @@ It is started at the begining of every epoch and it sleeps until the correct tim
 
 A cronjob needs to be configured, an example can be find [here](https://github.com/Techs2Help/leaderScheduleCheck_cron/blob/main/cronjob.txt)
 
-Output example:<br />
+**Output example:<br** />
 Current epoch: 197<br />
 Epoch start time: 04/04/22 20:20:16<br />
 Epoch end time: 04/09/22 20:10:16<br />
