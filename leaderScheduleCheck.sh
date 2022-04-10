@@ -92,7 +92,7 @@ function getLeaderslotCheckTime(){
 
 # Function to make the script sleep until check need to be executed
 function sleepUntil(){
-	sleepSeconds=$(( $(getLeaderslotCheckTime)-$(getCurrentTime) ))
+	sleepSeconds=$1
 	if [[ $sleepSeconds -gt 0 ]]; then
 		echo "Script is going to sleep for: $sleepSeconds seconds"
 		sleep $sleepSeconds
@@ -117,17 +117,25 @@ if [ isSynced ];then
 	epochEndTimestamp=$(getEpochEndTime)
 	echo "Epoch end time: $(timestampToUTC $epochEndTimestamp)"
 
-	echo "Current cron execution time: $(timestampToUTC $(getCurrentTime))"
+	currentTime=$(getCurrentTime)
+	echo "Current cron execution time: $(timestampToUTC $currentTime)"
 
 	timestampCheckLeaders=$(getLeaderslotCheckTime)
 	echo "Next check time: $(timestampToUTC $timestampCheckLeaders)"
 
-	sleepUntil
-
-	echo "Check is starting on $(timestampToUTC $(getCurrentTime))"
-	checkLeadershipSchedule
-
-	echo "Script ended, schedule logged inside file: leaderSchedule_$(( $(getCurrentEpoch)+1 )).txt"
+	timeDifference=$(( $timestampCheckLeaders-$currentTime ))
+	if [ -f "$DIRECTORY/logs/leaderSchedule_$(( $(getCurrentEpoch)+1 )).txt" ]; then
+                echo "Check already done, check logs for results" >&2 ; exit 1
+	elif [[ $timeDifference -gt 0 ]] && [[ $timeDifference -gt 86400 ]]; then
+                echo "Too early to run the script, wait for next cron scheduled job" >&2 ; exit 1
+	elif [[ $timeDifference -gt 0 ]] && [[ $timeDifference -le 86400 ]]; then
+		sleepUntil $timeDifference
+		echo "Check is starting on $(timestampToUTC $(getCurrentTime))"
+	        checkLeadershipSchedule
+		echo "Script ended, schedule logged inside file: leaderSchedule_$(( $(getCurrentEpoch)+1 )).txt"
+	else
+		echo "There were problems on running the script, check that everything is working fine" >&2 ; exit 1
+	fi
 else
 	echo "Node not fully synced." >&2 ; exit 1
 fi
