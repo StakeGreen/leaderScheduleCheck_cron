@@ -1,8 +1,9 @@
 # LeaderSchedule Check via Cronjob
 LeaderScheduleCheck for Cardano Stake Pools via Cronjob
 
-The script calculate the correct time to check for next epoch Leaderslot on a Cardano Stake Pool.
-It runs everyday, if it is too early too do that(too many day in advanced), it quits and wait for next day check, if it is the correct time(less than 86400 = 24H) it waits the correct time to run the check, then it output the logs into a file to future checks.
+The script calculate the correct time to run the cardano-cli query leadership-schedule for the next epoch on a Cardano Stake Pool.<br />
+It runs everyday via a configured cron job, if it is too early (too many day in advanced), it quits and the next day job will repeat the process.<br />
+If seconds remaining from the check are less than 86400 (24H), it waits the correct time, it runs the check and it sends the output to a log file for future checks.<br />
 If the check has been already done, it lets you know that.
 
 A cronjob needs to be configured, an example can be find [here](https://github.com/Techs2Help/leaderScheduleCheck_cron/blob/main/cronjob.txt)
