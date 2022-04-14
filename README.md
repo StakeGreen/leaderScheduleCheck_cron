@@ -24,3 +24,4 @@ Script ended, schedule logged inside file: leaderSchedule_197.txt<br />
 - Analyze the schedule output and convert it into json file to be integrated with Grafana
 - Calculate windows between blocks to reboot pool block producer node
 - convert it to a service, enable at start, if noded is rebooted it will still work
+- Add epoch summary 10 minutes before epoch ending for produced blocks
