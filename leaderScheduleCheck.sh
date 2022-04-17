@@ -18,7 +18,7 @@ network=$TESTNET
 CCLI=$(which cardano-cli)
 if [[ -z $CCLI ]]; then echo "cardano-cli command cannot be found, exiting..." >&2 ; exit 127; fi
 
-JQ=$(which cardano-cli)
+JQ=$(which jq)
 if [[ -z $JQ ]]; then echo "jq command cannot be found, exiting..." >&2 ; exit 127; fi
 
 read -ra BYRON_GENESIS <<< "$(jq -r '[ .startTime, .protocolConsts.k, .blockVersionData.slotDuration ] |@tsv' < $DIRECTORY$network-byron-genesis.json)"
