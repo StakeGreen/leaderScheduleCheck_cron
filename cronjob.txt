@@ -5,5 +5,5 @@ CARDANO_NODE_SOCKET_PATH=
 # run the script everyday at NETWORK epoch starting hour, add extra 10 minutes to be sure
 # epochs in testnet start at 20:20 UTC
 # epochs in mainnet start at 21:45 UTC
-30 20 * * * /PathToScript/leaderScheduleCheck.sh > /PathForLogs/leaderSchedule_logs.txt 2>&1  #testnet example
-55 21 * * * /PathToScript/leaderScheduleCheck.sh > /PathForLogs/leaderSchedule_logs.txt 2>&1  #testnet example
+30 20 * * * /PathToScript/leaderScheduleCheck.sh > /PathForLogs/leaderSchedule_logs.txt 2>&1  #testnet example with UTC+0 timezone
+55 21 * * * /PathToScript/leaderScheduleCheck.sh > /PathForLogs/leaderSchedule_logs.txt 2>&1  #mainnet example with UTC+0 timezone
