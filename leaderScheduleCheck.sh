@@ -20,6 +20,9 @@ MAINNET="mainnet"
 # Edit variable with $TESTNET for Testnet and $MAINNET for Mainnet
 network=$TESTNET
 
+# check for vrf.skey presence
+if [[ ! -f "$DIRECTORY/vrf.skey" ]]; then echo "vrf.skey not found"; fi
+
 CCLI=$(which cardano-cli)
 if [[ -z $CCLI ]]; then echo "cardano-cli command cannot be found, exiting..." >&2 ; exit 127; fi
 
