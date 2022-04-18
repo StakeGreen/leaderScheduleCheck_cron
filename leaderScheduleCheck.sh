@@ -4,7 +4,12 @@
 DIRECTORY=
 
 # create a pid, this way you can ps aux | grep leaderScheduleCheck.sh to see if script is running
-echo $$ > $DIRECTORY"/logs/leaderScheduleCheck.pid"
+if [[ -d "$DIRECTORY/logs" ]]; then 
+    echo $$ > $DIRECTORY"/logs/leaderScheduleCheck.pid"; 
+else 
+    echo "mkdir $DIRECTORY/logs"; 
+    echo $$ > $DIRECTORY"/logs/leaderScheduleCheck.pid"; 
+fi
 
 # Set your own stake pool ID
 STAKE_POOL_ID=""
