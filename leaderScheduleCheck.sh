@@ -3,13 +3,10 @@
 # cardano node directory
 DIRECTORY=
 
-# create a pid, this way you can ps aux | grep leaderScheduleCheck.sh to see if script is running
-if [[ -d "$DIRECTORY/logs" ]]; then 
-    echo $$ > "$DIRECTORY/logs/leaderScheduleCheck.pid"; 
-else 
-    mkdir $DIRECTORY/logs 
-    echo $$ > "$DIRECTORY/logs/leaderScheduleCheck.pid"; 
-fi
+if [[ ! -d "$DIRECTORY/logs" ]]; then mkdir $DIRECTORY/logs; fi 
+
+# create a pid, this way you can ps aux | grep leaderScheduleCheck.sh to see if script is running     
+echo $$ > "$DIRECTORY/logs/leaderScheduleCheck.pid"; 
 
 # Set your own stake pool ID
 STAKE_POOL_ID=""
