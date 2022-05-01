@@ -103,6 +103,9 @@ For every epoch, there will be a file called leaderSchedule_epoch.txt
 >Check is starting on: 04/08/22 14:12:46<br />
 >Script ended, schedule logged inside file: leaderSchedule_197.txt<br />
 
+## Contributors
+Nik from [Alice Stake Pool] (https://adapools.org/pool/1c220012e987c342ec4b4c6cea04501d0cf003459804b0e7018d3c73)
+
 
 ## Todo:
 - Add email notification after schedule is calculated
