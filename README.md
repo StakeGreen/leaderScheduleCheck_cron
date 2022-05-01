@@ -104,7 +104,7 @@ For every epoch, there will be a file called leaderSchedule_epoch.txt
 >Script ended, schedule logged inside file: leaderSchedule_197.txt<br />
 
 ## Contributors
-Nik from [Alice Stake Pool] (https://adapools.org/pool/1c220012e987c342ec4b4c6cea04501d0cf003459804b0e7018d3c73)
+Nik from <a href="https://adapools.org/pool/1c220012e987c342ec4b4c6cea04501d0cf003459804b0e7018d3c73">Alice Stake Pool</a>
 
 
 ## Todo:
