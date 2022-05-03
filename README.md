@@ -113,3 +113,4 @@ Nik from <a href="https://adapools.org/pool/1c220012e987c342ec4b4c6cea04501d0cf0
 - Calculate windows between blocks to reboot pool block producer node
 - convert it to a service, enable at start, if noded is rebooted it will still work
 - Add epoch summary of final produced blocks
+- Reschedule the check if there are nearby blocks
