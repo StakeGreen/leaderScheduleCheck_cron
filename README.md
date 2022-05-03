@@ -51,7 +51,7 @@ If everything is working correclty, an output as the follow will be presented:
 >[...]
 >Cutted output cause it can vary based on time when the script is runned
 
-Configure `Cronjob` to run make the script run automatically:
+Configure `Cronjob` to make the script run automatically:
 
 To configure the job at the start of an epoch, keep in mind the following information:
 - Epoch in TESTNET starts at 20:20 UTC
