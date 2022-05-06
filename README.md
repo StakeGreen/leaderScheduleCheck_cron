@@ -108,10 +108,11 @@ Nik from <a href="https://adapools.org/pool/1c220012e987c342ec4b4c6cea04501d0cf0
 
 
 ## Todo:
-- Add email notification after schedule is calculated
+- Add email notification after schedule is calculated / Telegram bot notification
 - Analyze the schedule output and convert it into json file to be integrated with Grafana
 - Calculate windows between blocks to reboot pool block producer node
-- convert it to a service, enable at start, if noded is rebooted it will still work
+- Convert it to a service, enable at start, if noded is rebooted it will still work
 - Add epoch summary of final produced blocks
 - Reschedule the check if there are nearby blocks
 - Change the output redirection management, integrate everything under the script (remove the need to add extra info into crontab)
+- Better checking of epoch's start, it could be inaccurate of few minutes, cause epochs don't spart always at 21:45UTC(mainnet)/20:20UTC(testnet) precisely --> find a better way to know when an epoch is started
