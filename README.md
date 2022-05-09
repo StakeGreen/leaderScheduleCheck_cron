@@ -116,3 +116,4 @@ Nik from <a href="https://adapools.org/pool/1c220012e987c342ec4b4c6cea04501d0cf0
 - Reschedule the check if there are nearby blocks
 - Change the output redirection management, integrate everything under the script (remove the need to add extra info into crontab)
 - Better checking of epoch's start, it could be inaccurate of few minutes, cause epochs don't spart always at 21:45UTC(mainnet)/20:20UTC(testnet) precisely --> find a better way to know when an epoch is started
+- Add Timezone global variable to print log timings in correct way based on user position
