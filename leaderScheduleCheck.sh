@@ -26,7 +26,7 @@ if [[ -z $CCLI ]]; then echo "cardano-cli command cannot be found, exiting..."; 
 JQ=$(which jq)
 if [[ -z $JQ ]]; then echo "jq command cannot be found, exiting..."; exit 127; fi
 
-read -ra BYRON_GENESIS <<< "$(jq -r '[ .startTime, .protocolConsts.k, .blockVersionData.slotDuration ] |@tsv' < $DIRECTORY/$network-byron-genesis.json)"
+read -ra BYRON_GENESIS <<< "$(jq -r '[ .startTime, .protocolConsts.k, .blockVersionData.slotDuration ] |@tsv' < $DIRECTORY/$network-shelley-genesis.json)"
 if [[ -z $BYRON_GENESIS ]]; then echo "BYRON GENESIS config file not loaded correctly"; exit 127; fi
 
 network_magic=""
