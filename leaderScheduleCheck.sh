@@ -26,8 +26,8 @@ if [[ -z $CCLI ]]; then echo "cardano-cli command cannot be found, exiting..."; 
 JQ=$(which jq)
 if [[ -z $JQ ]]; then echo "jq command cannot be found, exiting..."; exit 127; fi
 
-read -ra BYRON_GENESIS <<< "$(jq -r '[ .startTime, .protocolConsts.k, .blockVersionData.slotDuration ] |@tsv' < $DIRECTORY/$network-shelley-genesis.json)"
-if [[ -z $BYRON_GENESIS ]]; then echo "BYRON GENESIS config file not loaded correctly"; exit 127; fi
+read -ra SHELLEY_GENESIS <<< "$(jq -r '[ .startTime, .protocolConsts.k, .blockVersionData.slotDuration ] |@tsv' < $DIRECTORY/$network-shelley-genesis.json)"
+if [[ -z $SHELLEY_GENESIS ]]; then echo "SHELLEY GENESIS config file not loaded correctly"; exit 127; fi
 
 network_magic=""
 if [ $network = $TESTNET ]; then
@@ -58,12 +58,12 @@ function getCurrentEpoch(){
 
 # Get epoch start time based on current one
 function getEpochStartTime(){
-	byron_genesis_start_time=${BYRON_GENESIS[0]}
-	byron_k=${BYRON_GENESIS[1]}
-	byron_epoch_length=$(( 10 * byron_k ))
-	byron_slot_length=${BYRON_GENESIS[2]}
+	shelley_genesis_start_time=${SHELLEY_GENESIS[0]}
+	shelley_k=${SHELLEY_GENESIS[1]}
+	shelley_epoch_length=$(( 10 * shelley_k ))
+	shelley_slot_length=${SHELLEY_GENESIS[2]}
 
-	echo $(( $byron_genesis_start_time + (($(getCurrentEpoch) * $byron_epoch_length * $byron_slot_length) / 1000) ))
+	echo $(( $shelley_genesis_start_time + (($(getCurrentEpoch) * $shelley_epoch_length * $shelley_slot_length) / 1000) ))
 }
 
 # Get epoch end time based on the current one
